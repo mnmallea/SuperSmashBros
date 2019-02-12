@@ -15,6 +15,12 @@ class Equipo {
 	method integrantesEnPieSonMasDebilesQue(integrante) {
 		return self.integrantesEnPie().all{ unIntegrante => unIntegrante.esMasDebilQue(integrante) }
 	}
+	
+	method atacarA(otroEquipo){
+		self.integrantesEnPie().forEach{
+			integrante => integrante.atacarA(otroEquipo.objetivoMasDebil())
+		}
+	}
 
 }
 
