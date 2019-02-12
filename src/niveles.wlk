@@ -1,20 +1,24 @@
-object faseNormal{
+class Fase{
+	var faseAnterior
+	var faseSiguiente
+	
+	method evolucionar(unGoku){
+		unGoku.fase(faseSiguiente)
+	}
+}
+
+object faseNormal inherits Fase(faseSiguiente = ssj1){
 	method danioMaximoExtra(danioMaximoBase) = 0
 	
 	method poderEspecial() = 100
-	
-	method evolucionar(unGoku){
-		unGoku.fase(ssj1)
-	}
 	
 	method realizarAtaque(unGoku){
 		//no hace nada
 	}
 }
 
-class SuperSayajin{
+class SuperSayajin inherits Fase{
 	var porcentajeExtra
-	var faseAnterior
 	
 	method danioMaximoExtra(danioMaximoBase) = danioMaximoBase * (porcentajeExtra / 100)
 	
@@ -31,22 +35,14 @@ class SuperSayajin{
 	}
 }
 
-object ssj1 inherits SuperSayajin(porcentajeExtra = 10, faseAnterior = faseNormal){
-	method evolucionar(unGoku){
-		unGoku.fase(ssj2)
-	}
-	
+object ssj1 inherits SuperSayajin(porcentajeExtra = 10, faseAnterior = faseNormal, faseSiguiente = ssj2){
 }
 
-object ssj2 inherits SuperSayajin(porcentajeExtra = 25, faseAnterior = ssj1){
-	
-	method evolucionar(unGoku){
-		unGoku.fase(ssj3)
-	}
+object ssj2 inherits SuperSayajin(porcentajeExtra = 25, faseAnterior = ssj1, faseSiguiente = ssj3){
 }
 
 object ssj3 inherits SuperSayajin(porcentajeExtra = 80, faseAnterior = ssj2){
-	method evolucionar(unGoku){
+	override method evolucionar(unGoku){
 		// no hace nada
 	}
 	
