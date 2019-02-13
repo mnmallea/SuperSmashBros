@@ -20,7 +20,7 @@ class Personaje {
 	method estaFueraDeCombate() = self.danio() == self.danioMaximo()
 
 	method sufrirDanio(unaCantidad) {
-		danio = self.danioMaximo().min(self.danio() - unaCantidad)
+		danio = self.danioMaximo().min(self.danio() + unaCantidad)
 	}
 
 	method atacarA(otroPersonaje) {
