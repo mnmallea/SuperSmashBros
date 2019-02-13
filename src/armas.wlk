@@ -7,7 +7,7 @@ object espadaMaestra {
 	}
 
 	method poderExtra(unPersonaje) {
-		if (unPersonaje.danio() == 0) return 50 else return 0
+		if (unPersonaje.tieneDanioIgualA(0)) return 50 else return 0
 	}
 
 }

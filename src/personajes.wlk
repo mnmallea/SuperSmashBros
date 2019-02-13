@@ -33,6 +33,8 @@ class Personaje {
 	method debilidad() = self.danio() / self.poderBase()
 
 	method esMasDebilQue(otroPersonaje) = self.debilidad() > otroPersonaje.debilidad()
+	
+	method tieneDanioIgualA(unaCantidad) = self.danio() == unaCantidad
 
 }
 
